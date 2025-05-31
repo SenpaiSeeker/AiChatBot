@@ -1,0 +1,1 @@
+- yang nggak ngerti ambil cookies bisa chat [@NorSodikin](t.me/NorSodikin)
