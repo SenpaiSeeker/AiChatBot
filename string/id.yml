@@ -1,0 +1,8 @@
+language: "🇮🇩 Indonesia"
+
+msg_1: "🔄 **Sedang memproses...**"
+msg_2: "📝 **Silakan gunakan perintah sambil masukkan yang kamu inginkan**"
+msg_3: f"🖼️ **Jumlah gambar yang akan di-generate berhasil diubah ke {getarg}**"
+msg_4: "❗ **Jumlah harus berupa angka**"
+msg_5: "🌐 **Bahasa tidak ditemukan, Silakan gunakan format: id atau en**"
+msg_6: f"🌍 **Bahasa berhasil diubah ke: {lang.language}**"
