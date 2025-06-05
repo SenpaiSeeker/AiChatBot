@@ -1,0 +1,8 @@
+language: "🇬🇧 English"
+
+msg_1: "🔄 **Processing...**"
+msg_2: "📝 **Please use the command along with what you want**"
+msg_3: "🖼️ **The number of images to generate has been successfully set to {getarg}**"
+msg_4: "❗ **The number must be a digit**"
+msg_5: "🌐 **Language not found, Please use the format: id or en**"
+msg_6: "🌍 **Language has been successfully changed to: {lang.language}**"
