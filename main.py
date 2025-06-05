@@ -2,7 +2,7 @@ import asyncio
 import os
 
 from dotenv import load_dotenv
-from nsdev import Argument, ChatbotGemini, DataBase, ImageGenerator, LoggerHandler
+from nsdev import Argument, ChatbotGemini, DataBase, ImageGenerator, LoggerHandler, Gradient
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto
 
@@ -26,6 +26,7 @@ db = DataBase(
 )
 image = ImageGenerator(COOKIES_U, COOKIES_SRCHHPGUSR)
 logger = LoggerHandler()
+render = Gradient()
 
 
 @app.on_message(filters.command(["ai", "image", "khodam", "setcountphoto"]))
@@ -64,6 +65,7 @@ async def main_command(client, message):
             await asyncio.gather(msg.delete(), message.reply("**Jumlah harus berupa angka**"))
 
 
+render.render_text("AiChatBot")
 os.system("rm -rf *.session*")
 logger.print(f"{logger.CYAN}{argument.getNamebot(BOT_TOKEN)} {logger.PURPLE}| {logger.GREEN}berhasil dijalankan")
 app.run()
