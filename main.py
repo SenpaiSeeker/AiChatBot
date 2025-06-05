@@ -9,6 +9,7 @@ from nsdev import (
     Gradient,
     ImageGenerator,
     LoggerHandler,
+    YamlHandler,
 )
 from pyrogram import Client, filters
 from pyrogram.types import InputMediaPhoto
@@ -36,15 +37,22 @@ logger = LoggerHandler()
 render = Gradient()
 
 
-@app.on_message(filters.command(["ai", "image", "khodam", "setcountphoto"]))
+def getLang(user_id: int):
+    language = YamlHandler()
+    getLangById = db.getVars(int(app.me.id), f"LangBots{user_id}") or "id"
+    return language.loadAndConvert(f"string/{getLangById.lower()}.yml")
+
+
+@app.on_message(filters.command(["ai", "image", "khodam", "lang", "setcountphoto"]))
 async def main_command(client, message):
     command = message.command[0]
     getarg = argument.getMessage(message, is_arg=True)
+    lang = getLang(user_id)
 
-    msg = await message.reply("**Sedang memproses...**")
+    msg = await message.reply(lang.msg_1)
 
     if not getarg:
-        return await msg.edit("**Silahkan gunakan perintah sambil masukkan yang kamu inginkan**")
+        return await msg.edit(lang.msg_2)
 
     if command == "ai":
         result = chatbot.send_chat_message(getarg, message.from_user.id, client.me.first_name)
@@ -66,10 +74,17 @@ async def main_command(client, message):
         if getarg.isdigit():
             db.setVars(client.me.id, f"COUNT_PHOTO({message.from_user.id})", getarg)
             await asyncio.gather(
-                msg.delete(), message.reply(f"**Jumlah gambar yang akan di generate berhasil diubah ke {getarg}**")
+                msg.delete(), message.reply(eval(lang.msg_3))
             )
         else:
-            await asyncio.gather(msg.delete(), message.reply("**Jumlah harus berupa angka**"))
+            await asyncio.gather(msg.delete(), message.reply(lang.msg_4))
+            
+    if command == "lang":
+        if getarg.split()[0] not in ["id", "en"]:
+            await asyncio.gather(msg.delete(), message.reply(lang.msg_5))
+        else:
+            db.setVars(client.me.id, f"LangBots{user_id}", getarg.split()[0])
+            await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_6)))
 
 
 render.render_text("AiChatBot")
