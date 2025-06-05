@@ -39,7 +39,7 @@ render = Gradient()
 
 def getLang(user_id: int, me: int):
     language = YamlHandler()
-    getLangById = db.getVars(int(me), f"LangBots{user_id}") or "id"
+    getLangById = db.getVars(int(me), f"LangBots{int(user_id)}") or "id"
     return language.loadAndConvert(f"string/{getLangById.lower()}.yml")
 
 
