@@ -37,9 +37,9 @@ logger = LoggerHandler()
 render = Gradient()
 
 
-def getLang(user_id: int):
+def getLang(user_id: int, me: int):
     language = YamlHandler()
-    getLangById = db.getVars(int(app.me.id), f"LangBots{user_id}") or "id"
+    getLangById = db.getVars(int(me), f"LangBots{user_id}") or "id"
     return language.loadAndConvert(f"string/{getLangById.lower()}.yml")
 
 
@@ -47,7 +47,7 @@ def getLang(user_id: int):
 async def main_command(client, message):
     command = message.command[0]
     getarg = argument.getMessage(message, is_arg=True)
-    lang = getLang(message.from_user.id)
+    lang = getLang(message.from_user.id, client.me.id)
 
     msg = await message.reply(lang.msg_1)
 
