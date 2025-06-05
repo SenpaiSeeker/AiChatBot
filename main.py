@@ -37,9 +37,9 @@ logger = LoggerHandler()
 render = Gradient()
 
 
-def getLang(user_id: int, me: int):
+def getLang(user_id: int):
     language = YamlHandler()
-    getLangById = db.getVars(int(me), f"LangBots{int(user_id)}") or "id"
+    getLangById = db.getVars(int(app.me.id), f"LangBots{int(user_id)}") or "id"
     return language.loadAndConvert(f"string/{getLangById.lower()}.yml")
 
 
@@ -49,10 +49,10 @@ async def main_command(client, message):
     getarg = argument.getMessage(message, is_arg=True)
     lang = getLang(message.from_user.id, client.me.id)
 
-    msg = await message.reply(eval(lang.msg_1))
+    msg = await message.reply(lang.msg_1)
 
     if not getarg:
-        return await msg.edit(eval(lang.msg_2))
+        return await msg.edit(lang.msg_2)
 
     if command == "ai":
         result = chatbot.send_chat_message(getarg, message.from_user.id, client.me.first_name)
@@ -75,15 +75,14 @@ async def main_command(client, message):
             db.setVars(client.me.id, f"COUNT_PHOTO({message.from_user.id})", getarg)
             await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_3)))
         else:
-            await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_4)))
+            await asyncio.gather(msg.delete(), message.reply(lang.msg_4))
 
     if command == "lang":
         if getarg.split()[0] not in ["id", "en"]:
-            await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_5)))
+            await asyncio.gather(msg.delete(), message.reply(lang.msg_5))
         else:
             db.setVars(client.me.id, f"LangBots{message.from_user.id}", getarg.split()[0])
-            await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_6)))
-
+            await asyncio.gather(msg.delete(), message.reply(lang.msg_6))
 
 render.render_text("AiChatBot")
 os.system("rm -rf *.session*")
