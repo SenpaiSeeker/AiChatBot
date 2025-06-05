@@ -83,7 +83,7 @@ async def main_command(client, message):
         if getarg.split()[0] not in ["id", "en"]:
             await asyncio.gather(msg.delete(), message.reply(lang.msg_5))
         else:
-            db.setVars(client.me.id, f"LangBots{user_id}", getarg.split()[0])
+            db.setVars(client.me.id, f"LangBots{message.from_user.id}", getarg.split()[0])
             await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_6)))
 
 
