@@ -12,4 +12,4 @@ msg_4: |
 msg_5: |
     f"🌐 **Language not found, Please use the format: id or en**"
 msg_6: |
-    f"🌍 **Language has been successfully changed to: {lang.language}**"
+    f"🌍 **Language has been successfully changed to: Indonesia**"
