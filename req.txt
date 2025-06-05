@@ -2,5 +2,5 @@ pyrogram
 tgcrypto
 python-dotenv
 google-generativeai
-PyYAML
 norsodikin==0.3.9.dev6
+PyYAML
