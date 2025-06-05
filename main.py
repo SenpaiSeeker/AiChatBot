@@ -47,7 +47,7 @@ def getLang(user_id: int):
 async def main_command(client, message):
     command = message.command[0]
     getarg = argument.getMessage(message, is_arg=True)
-    lang = getLang(message.from_user.id, client.me.id)
+    lang = getLang(message.from_user.id)
 
     msg = await message.reply(lang.msg_1)
 
