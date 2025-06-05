@@ -84,6 +84,7 @@ async def main_command(client, message):
             db.setVars(client.me.id, f"LangBots{message.from_user.id}", getarg.split()[0])
             await asyncio.gather(msg.delete(), message.reply(lang.msg_6))
 
+
 render.render_text("AiChatBot")
 os.system("rm -rf *.session*")
 logger.print(f"{logger.CYAN}{argument.getNamebot(BOT_TOKEN)} {logger.PURPLE}| {logger.GREEN}berhasil dijalankan")
