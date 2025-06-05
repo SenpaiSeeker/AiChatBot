@@ -1,15 +1,15 @@
 language: |
-    f"🇮🇩 Indonesia"
+    "🇮🇩 Indonesia
 
 msg_1: |
-    f"🔄 **Sedang memproses...**"
+    🔄 **Sedang memproses...**
 msg_2: |
-    f"📝 **Silakan gunakan perintah sambil masukkan yang kamu inginkan**"
+    📝 **Silakan gunakan perintah sambil masukkan yang kamu inginkan**
 msg_3: |
     f"🖼️ **Jumlah gambar yang akan di-generate berhasil diubah ke {getarg}**"
 msg_4: |
-    f"❗ **Jumlah harus berupa angka**"
+    "❗ **Jumlah harus berupa angka**
 msg_5: |
-    f"🌐 **Bahasa tidak ditemukan, Silakan gunakan format: id atau en**"
+    🌐 **Bahasa tidak ditemukan, Silakan gunakan format: id atau en**
 msg_6: |
-    f"🌍 **Bahasa berhasil diubah ke: English**"
+    🌍 **Bahasa berhasil diubah ke: English**
