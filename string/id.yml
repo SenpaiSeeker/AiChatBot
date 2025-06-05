@@ -12,4 +12,4 @@ msg_4: |
 msg_5: |
     f"🌐 **Bahasa tidak ditemukan, Silakan gunakan format: id atau en**"
 msg_6: |
-    f"🌍 **Bahasa berhasil diubah ke: {lang.language}**"
+    f"🌍 **Bahasa berhasil diubah ke: English**"
