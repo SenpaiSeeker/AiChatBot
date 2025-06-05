@@ -73,7 +73,7 @@ async def main_command(client, message):
     if command == "setcountphoto":
         if getarg.isdigit():
             db.setVars(client.me.id, f"COUNT_PHOTO({message.from_user.id})", getarg)
-            await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_3))))
+            await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_3)))
         else:
             await asyncio.gather(msg.delete(), message.reply(eval(lang.msg_4)))
 
