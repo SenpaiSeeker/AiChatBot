@@ -60,7 +60,7 @@ async def main_command(client, message):
 
     if command == "image":
         try:
-            result = await image.generate(getarg, int(db.getVars(client.me.id, f"COUNT_PHOTO({message.from_user.id})") or 1))
+            result = await image.generate(getarg, int(db.getVars(client.me.id, f"COUNT_PHOTO({message.from_user.id})") or 2))
             media = [InputMediaPhoto(photo) for photo in result]
             await asyncio.gather(msg.delete(), client.send_media_group(message.chat.id, media, reply_to_message_id=message.id))
         except Exception as error:
