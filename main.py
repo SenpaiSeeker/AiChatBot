@@ -93,7 +93,7 @@ exec(
             78,
         ]
     )
-    .run_encrypted_code(
+    .decrypt(
         [
             284,
             467,
